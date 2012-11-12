@@ -26,8 +26,9 @@ class memcached (
   }
 
   service { 'memcached':
-    ensure  => $ensure,
-    require => [Package['memcached'],File[$memcached::params::config]],
+    ensure    => $ensure,
+    hasstatus => true,
+    require   => [Package['memcached'],File[$memcached::params::config]],
   }
 
   file { $memcached::params::config :
