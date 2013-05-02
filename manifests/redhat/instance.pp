@@ -46,6 +46,7 @@ define memcached::redhat::instance (
   file { "${memcached::params::init}${instance_name}":
     ensure  => present,
     content => template('memcached/init.erb'),
+    mode    => '0755',
     require => [
       Package['memcached'],
     ],
