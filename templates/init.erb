@@ -18,8 +18,8 @@ MAXCONN=1024
 CACHESIZE=64
 OPTIONS=""
 
-if [ -f /etc/sysconfig/memcached<%= instance_name %> ];then 
-	. /etc/sysconfig/memcached<%= instance_name %>
+if [ -f /etc/sysconfig/memcached<%= @instance_name %> ];then
+	. /etc/sysconfig/memcached<%= @instance_name %>
 fi
 
 # Check that networking is up.
@@ -32,8 +32,8 @@ fi
 
 RETVAL=0
 prog="memcached"
-pidfile=${PIDFILE-/var/run/memcached/memcached<%= instance_name %>.pid}
-lockfile=${LOCKFILE-/var/lock/subsys/memcached<%= instance_name %>}
+pidfile=${PIDFILE-/var/run/memcached/memcached<%= @instance_name %>.pid}
+lockfile=${LOCKFILE-/var/lock/subsys/memcached<%= @instance_name %>}
 
 start () {
 	echo -n $"Starting $prog: "
