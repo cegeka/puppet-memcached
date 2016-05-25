@@ -12,6 +12,7 @@
 #
 define memcached::redhat::instance (
   $ensure=running,
+  $enabled=undef,
   $port='11211',
   $user='memcached',
   $maxconn='1024',
@@ -29,6 +30,7 @@ define memcached::redhat::instance (
   service { "memcached${instance_name}":
     ensure    => $ensure,
     hasstatus => true,
+    enable    => $enabled,
     require   => [
       Package['memcached'],
     ],

@@ -12,6 +12,7 @@
 #
 define memcached::instance (
   $ensure=running,
+  $enabled=undef,
   $port='11211',
   $user='memcached',
   $maxconn='1024',
@@ -22,6 +23,7 @@ define memcached::instance (
     redhat, centos: {
       memcached::redhat::instance { $name:
         ensure    => $ensure,
+        enabled   => $enabled,
         port      => $port,
         user      => $user,
         maxconn   => $maxconn,
