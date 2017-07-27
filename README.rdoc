@@ -1,5 +1,5 @@
 = puppet-memcached module
 
-{<img src='https://codex.cegeka.be/jenkins/job/puppet-memcached/badge/icon' />}[https://codex.cegeka.be/jenkins/job/puppet-memcached/]
+{<img src='https://jenkins-iac.cegeka.be/job/puppet-memcached/badge/icon' />}[https://jenkins-iac.cegeka.be/job/puppet-memcached/]
 
 This is the memcached module.
