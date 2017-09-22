@@ -39,6 +39,7 @@ start () {
 	echo -n $"Starting $prog: "
 	# Ensure that /var/run/memcached has proper permissions
 	if [ "`stat -c %U /var/run/memcached`" != "$USER" ]; then
+		mkdir -p /var/run/memcached
 		chown $USER /var/run/memcached
 	fi
 
@@ -49,7 +50,7 @@ start () {
 }
 stop () {
 	echo -n $"Stopping $prog: "
-	killproc -p ${pidfile} /usr/bin/memcached
+  pkill -F /var/run/memcached/memcached-<%= @instance_name %>.pid
 	RETVAL=$?
 	echo
 	if [ $RETVAL -eq 0 ] ; then
