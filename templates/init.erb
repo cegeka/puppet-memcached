@@ -12,6 +12,7 @@
 # Source function library.
 . /etc/init.d/functions
 
+LISTEN=127.0.0.1
 PORT=11211
 USER=memcached
 MAXCONN=1024
@@ -43,7 +44,7 @@ start () {
 		chown $USER /var/run/memcached
 	fi
 
-	daemon --pidfile ${pidfile} memcached -d -p $PORT -u $USER  -m $CACHESIZE -c $MAXCONN -P ${pidfile} $OPTIONS
+	daemon --pidfile ${pidfile} memcached -d -l $LISTEN -p $PORT -u $USER  -m $CACHESIZE -c $MAXCONN -P ${pidfile} $OPTIONS
 	RETVAL=$?
 	echo
 	[ $RETVAL -eq 0 ] && touch ${lockfile}
