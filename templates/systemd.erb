@@ -11,7 +11,7 @@ RuntimeDirectory=memcached
 RuntimeDirectoryMode=755
 EnvironmentFile=-/etc/sysconfig/memcached<%= @instance_name %>
 PIDFile=/run/memcached/memcached<%= @instance_name %>.pid
-ExecStart=/bin/memcached -p $PORT -u $USER  -m $CACHESIZE -c $MAXCONN -P /run/memcached/memcached<%= @instance_name %>.pid $OPTIONS
+ExecStart=/bin/memcached -l $LISTEN -p $PORT -u $USER  -m $CACHESIZE -c $MAXCONN -P /run/memcached/memcached<%= @instance_name %>.pid $OPTIONS
 User=memcached
 
 [Install]
