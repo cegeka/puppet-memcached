@@ -60,15 +60,16 @@ define memcached::redhat::instance (
       }
     }
     5,6: {
-    	file { "${memcached::params::init}${instance_name}":
-    	  ensure  => present,
-    	  content => template('memcached/init.erb'),
-    	  mode    => '0755',
-    	  require => [
-    	    Package['memcached'],
-    	  ],
-    	  notify  => Service["memcached${instance_name}"],
-    	}
+      file { "${memcached::params::init}${instance_name}":
+        ensure  => present,
+        content => template('memcached/init.erb'),
+        mode    => '0755',
+        require => [
+          Package['memcached'],
+        ],
+        notify  => Service["memcached${instance_name}"],
+      }
     }
+    default: {}
   }
 }
