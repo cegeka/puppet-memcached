@@ -12,7 +12,7 @@
 #
 define memcached::redhat::instance (
   $ensure=running,
-  $enabled=undef,
+  $enabled=true,
   $listen='127.0.0.1',
   $port='11211',
   $user='memcached',
