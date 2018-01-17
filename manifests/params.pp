@@ -1,7 +1,7 @@
 class memcached::params {
 
   case $::operatingsystem {
-    RedHat,CentOS: {
+    'RedHat','CentOS': {
       $config = '/etc/sysconfig/memcached'
       $init = '/etc/init.d/memcached'
     }

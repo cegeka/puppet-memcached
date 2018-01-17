@@ -21,7 +21,7 @@ define memcached::instance (
   $options=undef
 ){
   case $::operatingsystem {
-    redhat, centos: {
+    'RedHat', 'CentOS': {
       memcached::redhat::instance { $name:
         ensure    => $ensure,
         enabled   => $enabled,
