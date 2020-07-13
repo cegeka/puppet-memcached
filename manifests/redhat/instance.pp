@@ -47,7 +47,7 @@ define memcached::redhat::instance (
   }
 
   case $::operatingsystemmajrelease {
-    '7': {
+    '7','8': {
       file { "/usr/lib/systemd/system/memcached${instance_name}.service":
         ensure  => present,
         content => template('memcached/systemd.erb'),
