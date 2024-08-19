@@ -20,7 +20,7 @@ define memcached::instance (
   $cachesize='512',
   $options=undef
 ){
-  case $::operatingsystem {
+  case $facts['os']['name'] {
     'RedHat', 'CentOS': {
       memcached::redhat::instance { $name:
         ensure    => $ensure,
@@ -33,6 +33,6 @@ define memcached::instance (
         options   => $options,
       }
     }
-    default: { fail("operatingsystem ${::operatingsystem} is not supported") }
+    default: { fail("operatingsystem ${facts['os']['name']} is not supported") }
   }
 }
