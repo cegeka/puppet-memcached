@@ -46,7 +46,7 @@ define memcached::redhat::instance (
     notify  => Service["memcached${instance_name}"],
   }
 
-  case $::operatingsystemmajrelease {
+  case $facts['os']['release']['major'] {
     '7','8': {
       file { "/usr/lib/systemd/system/memcached${instance_name}.service":
         ensure  => present,
